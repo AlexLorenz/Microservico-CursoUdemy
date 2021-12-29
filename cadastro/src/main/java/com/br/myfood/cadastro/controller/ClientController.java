@@ -1,6 +1,7 @@
 package com.br.myfood.cadastro.controller;
 
 import com.br.myfood.cadastro.dto.ClientDTO;
+import com.br.myfood.cadastro.entity.Client;
 import com.br.myfood.cadastro.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,6 @@ public class ClientController {
     @PostMapping("/insert")
     public ResponseEntity insertClient(@RequestBody ClientDTO clientDTO) {
 
-        return ResponseEntity.ok(clientService.insertClient(clientDTO));
+        return ResponseEntity.ok(clientService.insertClient(Client.create(clientDTO)));
     }
 }
